@@ -3,13 +3,13 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const User = require('./models/User');
 const Post = require('./models/Post');
+const Comment = require('./models/Comment');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
-
 const app = express();
 const uploadMiddleware = multer({ dest: 'upload/' });
 const salt = bcrypt.genSaltSync(10);
@@ -175,37 +175,6 @@ app.put('/post/:id', uploadMiddleware.single('file'), async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
-// Route to add a new comment
-app.post('/comment', async (req, res) => {
-  const { token } = req.cookies;
-  const { postId, content } = req.body;
-  try {
-    const decoded = jwt.verify(token, secret);
-    const comment = await Comment.create({ 
-      author: decoded.id, 
-      content, 
-      postId 
-    });
-    const post = await Post.findById(postId);
-    post.comments.push(comment._id);
-    await post.save();
-    res.json(comment);
-  } catch (e) {
-    console.error(e);
-    res.status(400).json(e);
-  }
-});
-
-// Route to fetch comments for a post
-app.get('/comments/:postId', async (req, res) => {
-  try {
-    const comments = await Comment.find({ postId: req.params.postId }).populate('author');
-    res.json(comments);
-  } catch (e) {
-    console.error(e);
-    res.status(400).json(e);
-  }
-});
 app.get('/post', async (req, res) => {
   const { q } = req.query;
   const query = q ? { title: new RegExp(q, 'i') } : {};
@@ -219,6 +188,38 @@ app.get('/post', async (req, res) => {
   } catch (e) {
     console.error(e);
     res.status(500).json('Error fetching posts');
+  }
+});
+app.post('/comment', async (req, res) => {
+  const { content, postId } = req.body;
+  const { token } = req.cookies;
+
+  try {
+      const user = jwt.verify(token, secret);
+      const comment = await Comment.create({
+          content,
+          author: user.id,
+          post: postId,
+      });
+
+      await Post.findByIdAndUpdate(postId, { $push: { comments: comment._id } });
+      
+      res.json(comment);
+  } catch (err) {
+      console.error('Error creating comment:', err);
+      res.status(500).json('Error creating comment');
+  }
+});
+
+app.get('/comments/:postId', async (req, res) => {
+  const { postId } = req.params;
+  
+  try {
+      const comments = await Comment.find({ post: postId }).populate('author', 'username');
+      res.json(comments);
+  } catch (err) {
+      console.error('Error fetching comments:', err);
+      res.status(500).json('Error fetching comments');
   }
 });
 

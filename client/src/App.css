@@ -3,11 +3,11 @@
 }
 
 body {
-  color: #222;
+  color: #3e2723; /* Dark brown for text */
   font-size: 18px; /* Increased font size for better readability */
   line-height: 1.6; /* Increased line height for better readability */
-  background-color: #f9f9f9; /* Light background for better contrast */
-  font-family: Arial, sans-serif; /* Simple, sans-serif font for better readability */
+  background-color: #f8f5e1; /* Light, warm background color */
+  font-family: Arial, sans-serif;  /* Cozy, serif font */
 }
 
 img {
@@ -30,13 +30,14 @@ header {
 
 header a {
   text-decoration: none;
-  color: inherit;
+  color: #d84315; /* Warm, appetizing color */
   font-size: 1.2rem; /* Increased font size for better readability */
 }
 
 header a.logo {
   font-weight: bold;
   font-size: 1.8rem; /* Increased font size for better readability */
+  color: #bf360c; /* Deep red color */
 }
 
 header nav {
@@ -60,6 +61,7 @@ div.post {
 div.post div.text h2 {
   margin: 0;
   font-size: 1.8rem; /* Increased font size for better readability */
+  color: #5d4037; /* Dark brown color */
 }
 
 div.post div.text a {
@@ -69,7 +71,7 @@ div.post div.text a {
 
 div.post p.info {
   margin: 6px 0;
-  color: #888;
+  color: #8d6e63; /* Muted brown color */
   font-size: 1rem; /* Increased font size for better readability */
   font-weight: bold;
   display: flex;
@@ -77,7 +79,7 @@ div.post p.info {
 }
 
 div.post p.info a.author {
-  color: #333;
+  color: #4e342e; /* Dark brown color */
 }
 
 div.post p.summary {
@@ -96,7 +98,7 @@ input {
   margin-bottom: 10px; /* Increased margin for better touch targets */
   width: 100%;
   padding: 10px; /* Increased padding for better touch targets */
-  border: 2px solid #ddd;
+  border: 2px solid #d7ccc8; /* Light brown border */
   border-radius: 5px;
   background-color: #fff;
   font-size: 1.2rem; /* Increased font size for better readability */
@@ -105,7 +107,7 @@ input {
 button {
   width: 100%;
   display: block;
-  background-color: #555;
+  background-color: #6d4c41; /* Warm brown color */
   border: 0;
   color: #fff;
   border-radius: 5px;
@@ -132,13 +134,14 @@ div.post-page div.image img {
 }
 
 div.post-page a {
-  color: #333;
+  color: #d84315; /* Warm, appetizing color */
   text-decoration: underline;
 }
 
 div.post-page h1 {
   text-align: center;
   font-size: 2rem; /* Increased font size for better readability */
+  color: #3e2723; /* Dark brown color */
 }
 
 div.post-page time {
@@ -170,7 +173,7 @@ div.edit-row {
 }
 
 div.post-page a.edit-btn {
-  background-color: #333;
+  background-color: #3e2723; /* Dark brown color */
   display: inline-flex;
   align-items: center;
   gap: 10px; /* Increased gap for better touch targets */
@@ -184,7 +187,58 @@ div.post-page a.edit-btn {
 a svg {
   height: 24px; /* Increased size for better visibility */
 }
+
 header a.logo img {
   max-height: 80px; /* Adjust the height as needed */
   display: block;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* src/App.css */
+.comment-section {
+  margin-top: 2rem;
+}
+
+.comment-section form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.comment-section textarea {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  resize: vertical;
+}
+
+.comment-section button {
+  align-self: flex-end;
+  padding: 0.5rem 1rem;
+  background-color: #6d4c41; /* Warm brown color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.comment-section .comments {
+  margin-top: 1rem;
+}
+
+.comment-section .comment {
+  margin-bottom: 1rem;
+}
+
+.comment-section .comment p {
+  margin: 0;
+}
+
+.comment-section .comment time {
+  font-size: 0.875rem;
+  color: #888;
 }

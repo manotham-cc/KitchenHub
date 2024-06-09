@@ -20,7 +20,7 @@ export default function LoginPage() {
       });
       if (!response.ok) {
         const errorData = await response.json();
-        setError(errorData.error || 'Invalid credentials');
+        setError(errorData.error || 'Invalid');
       } else {
         const userInfo = await response.json();
         setUserInfo(userInfo);
