@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #222;
+  font-size: 18px; /* Increased font size for better readability */
+  line-height: 1.6; /* Increased line height for better readability */
+  background-color: #f9f9f9; /* Light background for better contrast */
+  font-family: Arial, sans-serif; /* Simple, sans-serif font for better readability */
+}
+
+img {
+  max-width: 100%;
+}
+
+main {
+  padding: 20px; /* Increased padding for better touch targets */
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  margin-top: 20px;
+  align-items: center;
+}
+
+header a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem; /* Increased font size for better readability */
+}
+
+header a.logo {
+  font-weight: bold;
+  font-size: 1.8rem; /* Increased font size for better readability */
+}
+
+header nav {
+  display: flex;
+  gap: 20px; /* Increased gap for better touch targets */
+}
+
+div.post {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px; /* Increased gap for better readability */
+  margin-bottom: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  div.post {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+}
+
+div.post div.text h2 {
+  margin: 0;
+  font-size: 1.8rem; /* Increased font size for better readability */
+}
+
+div.post div.text a {
+  text-decoration: none;
+  color: inherit;
+}
+
+div.post p.info {
+  margin: 6px 0;
+  color: #888;
+  font-size: 1rem; /* Increased font size for better readability */
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+
+div.post p.info a.author {
+  color: #333;
+}
+
+div.post p.summary {
+  margin: 15px 0;
+  line-height: 1.6; /* Increased line height for better readability */
+}
+
+form.login,
+form.register {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px; /* Increased margin for better touch targets */
+  width: 100%;
+  padding: 10px; /* Increased padding for better touch targets */
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1.2rem; /* Increased font size for better readability */
+}
+
+button {
+  width: 100%;
+  display: block;
+  background-color: #555;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 0; /* Increased padding for better touch targets */
+  font-size: 1.2rem; /* Increased font size for better readability */
+}
+
+form.login h1,
+form.register h1 {
+  text-align: center;
+  font-size: 2rem; /* Increased font size for better readability */
+}
+
+div.post-page div.image {
+  max-height: 400px;
+  display: flex;
+  overflow: hidden;
+}
+
+div.post-page div.image img {
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+}
+
+div.post-page a {
+  color: #333;
+  text-decoration: underline;
+}
+
+div.post-page h1 {
+  text-align: center;
+  font-size: 2rem; /* Increased font size for better readability */
+}
+
+div.post-page time {
+  text-align: center;
+  display: block;
+  font-size: 1.2rem; /* Increased font size for better readability */
+  color: #7d7d7d;
+}
+
+div.post-page div.author {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2rem; /* Increased font size for better readability */
+  font-weight: bold;
+}
+
+div.content p {
+  line-height: 2rem;
+  margin: 30px 0;
+}
+
+div.content li {
+  margin-bottom: 15px; /* Increased margin for better readability */
+}
+
+div.edit-row {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+div.post-page a.edit-btn {
+  background-color: #333;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; /* Increased gap for better touch targets */
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1.2rem; /* Increased font size for better readability */
+}
+
+a svg {
+  height: 24px; /* Increased size for better visibility */
+}
+header a.logo img {
+  max-height: 80px; /* Adjust the height as needed */
+  display: block;
+}
